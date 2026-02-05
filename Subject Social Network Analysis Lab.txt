@@ -1,0 +1,361 @@
+Subject: Social Network Analysis Laboratory (DJ19DSL8014)
+AY: 2024-25
+Experiment 2
+Aim: Building a network and network measures using NetworkX: a) Degree & Degree Distance b) Clustering c) Node Centrality measure d) Helper Function
+Theory:
+1.	Introduction
+Building a Network and Network Measures using “NetworkX" is an insightful experiment that dives into the world of social network analysis using Python's powerful NetworkX library. This process involves constructing a network graph to model relationships and interactions, followed by an in-depth examination of key network properties. The experiment focuses on assessing network characteristics such as degree and degree distribution, clustering, and node centrality measures, providing a comprehensive understanding of the structural and influential dynamics within the network. The inclusion of helper functions streamlines the analysis, making it an efficient and effective approach to uncovering the complexities of social networks.
+ 
+Network Representation
+
+
+To build a network and analyze network measures using NetworkX, follow this stepwise procedure:
+•	Import NetworkX: Start by importing the NetworkX library in Python.
+•	Create a Network: Use NetworkX to create a graph object, which could be directed or undirected.
+•	Add Nodes and Edges: Populate the graph with nodes and edges representing your network's entities and their relationships.
+•	Degree & Degree Distribution: Calculate the degree of each node (number of connections) and analyze the degree distribution across the network.
+•	Clustering: Compute the clustering coefficient for each node to understand the degree to which nodes tend to cluster together.
+•	Node Centrality Measures: Calculate centrality measures like betweenness centrality, closeness centrality, and eigenvector centrality to identify influential nodes in the network.
+•	Helper Functions: Utilize or create helper functions in Python to streamline repetitive tasks or calculations in your network analysis.
+•	Degree & Degree Distance:
+Degree: The degree of a node in a network is the number of connections or edges the node has to other nodes.
+•	Degree Distance: This is not a standard term in network analysis. If you meant the sum of the degrees of a pair of nodes, you can simply sum their degrees.
+   import networkx as nx
+  def calculate_degree(graph):
+    return dict(graph.degree())
+   def calculate_degree_distance(graph, node1, node2):
+    degree_node1 = graph.degree(node1)
+    degree_node2 = graph.degree(node2)
+    return degree_node1 + degree_node2
+•	Clustering:
+Clustering coefficient of a node measures the likelihood that its neighbors are also connected. The global clustering coefficient is the average local clustering coefficient over all the nodes in the graph.
+            def calculate_clustering(graph):
+                      return nx.clustering(graph)
+            def calculate_average_clustering(graph):
+                     return nx.average_clustering(graph)
+•	Node Centrality Measures:
+Centrality measures help to identify the most important vertices within a graph. Examples are degree centrality, betweenness centrality, closeness centrality, and eigenvector centrality.
+                                    def calculate_degree_centrality(graph):
+    return nx.degree_centrality(graph)
+def calculate_betweenness_centrality(graph):
+    return nx.betweenness_centrality(graph)
+def calculate_closeness_centrality(graph):
+    return nx.closeness_centrality(graph)
+def calculate_eigenvector_centrality(graph):
+    return nx.eigenvector_centrality(graph)
+•	Helper Function:
+A helper function could be many things depending on what you need. Here's a simple example to add edges to a graph from a list of tuples.
+def add_edges(graph, edge_list):
+    for edge in edge_list:
+        graph.add_edge(edge[0], edge[1])
+Interpretation: Students should focus on understanding the significance of each network metric, recognizing how Degree indicates a node's connectivity and potential influence, how Clustering Coefficients reveal the propensity for nodes to form close-knit groups, and how various Centrality measures uncover the most pivotal nodes, whether in terms of control over information flow, communication efficiency, or strategic connections within the network.
+Research Perspective:
+•	Degree & Degree Distance:Explore the impact of individual nodes' connectivity on network structure and resilience. Assess how nodes with higher degrees influence network functionality and stability.
+•	Clustering Coefficient:Investigate the formation of tight-knit groups within the network and their effects on information dissemination, network robustness, and community emergence.
+•	Node Centrality Measures:Analyze the roles of central nodes in shaping network dynamics, information flow, and structural integrity, assessing their contribution to the network's overall performance.
+•	Helper Functions:Focus on developing and utilizing helper functions to enhance the efficiency and depth of network analysis, streamlining data processing, analysis, and visualization.
+
+Lab Assignment:
+Airline Route Network Analysis
+You have been given the task to analyze the route network of an international airline. The nodes represent cities, and the edges represent direct flights between them. The airline has hubs in New York (NY), London (LD), Dubai (DB), and Tokyo (TK). Other cities included in the network are Los Angeles (LA), Mumbai (MU), Sydney (SY), and Beijing (BJ).
+
+The direct flights (edges) between these cities are as follows:
+
+NY ↔ LD
+NY ↔ LA
+LD ↔ DB
+LD ↔ TK
+DB ↔ MU
+DB ↔ BJ
+TK ↔ SY
+TK ↔ BJ
+LA ↔ SY
+Tasks: Using NetworkX, examine various network measures.
+Reference: 
+https://www.geeksforgeeks.org/network-centrality-measures-in-a-graph-using-networkx-python/
+https://www.kirenz.com/post/2019-08-13-network_analysis/
+
+
+
+
+
+Subject: Social Network Analysis Laboratory (DJ19DSL8014)
+AY: 2024-25
+Experiment 3
+Aim: Implementation of The Erdős-Rényi (ER) random network growth model. 
+
+Theory:
+
+1.	Introduction
+The Erdős-Rényi (ER) model, named after mathematicians Paul Erdős and Alfréd Rényi, is central to the field of network science, offering key insights into the random processes that can generate network structures. Unlike the Barabasi-Albert model, which is characterized by the scale-free property and preferential attachment, the ER model is defined by its simplicity and the random nature of connections between nodes. This model is particularly useful in exploring the properties of networks where the probability of connection between any two nodes is uniform.
+
+The Erdős-Rényi model comes in two variants:
+
+G(n, p): A graph of n nodes where each pair of nodes is connected with probability p.
+G(n, M): A graph of n nodes and M randomly placed edges.
+ 
+Implementation Steps for the Erdős-Rényi (G(n, p)) Model
+
+•	Implementation Steps for the Erdős-Rényi (G(n, p)) Model
+•	Initialize an Empty Network: Begin with n nodes but no edges.
+•	Random Edge Creation: For every pair of distinct nodes, add an edge between them with a fixed probability p.
+•	Iterative Process: The process of considering pairs and deciding on edge creation is done once for each unique pair.
+•	Analysis: After the network is generated, analyze its properties such as degree distribution, clustering coefficient, diameter, and path lengths.
+
+Lab assignment:
+1.	Create a scale-free network using the Erdos-enyi network.
+
+2.	Calculate degree distribution, Diameter, Average clustering coefficient, Find out effect of changing pattern of N and P on above parameters and its interpretation.
+
+Reference: 
+https://www.geeksforgeeks.org/erdos-renyl-model-generating-random-graphs/
+https://www.ndsu.edu/pubweb/~novozhil/Teaching/767%20Data/chapter_3.pdf
+
+
+
+                                 Subject: Social Network Analysis Laboratory (DJ19DSL8014)
+AY: 2024-25
+Experiment 4
+Aim: Implementation of random scale-free network growth model on network science. (BarabasiAlbert).
+Theory:
+1.	Introduction
+The implementation of the random scale-free network growth model, notably the Barabasi-Albert model, is a cornerstone in network science, offering profound insights into the formation and evolution of complex networks. This model, pivotal in understanding the intricacies of real-world networks, sheds light on how networks develop and expand through preferential attachment, leading to scale-free properties. Such an exploration not only enhances our comprehension of network dynamics but also has far-reaching applications across various fields, from sociology to biology and technology.
+The stepwise process for implementing the Barabasi-Albert (BA) model for scale-free network growth in network science typically includes:
+ 
+•	Initialize a Small Network: Start with a small number of nodes (usually connected).
+•	Addition of New Nodes: Iteratively add new nodes to the network.
+•	Preferential Attachment: Connect each new node to existing nodes with a probability proportional to the number of links the existing nodes already have.
+•	Iterative Growth: Repeat the process of adding new nodes and linking them based on preferential attachment.
+•	Analysis: After the network has grown to the desired size, analyze its properties, such as degree distribution, clustering coefficient, and path lengths.
+•	This process creates networks that mimic the scale-free topology seen in many real-world networks, where some nodes (hubs) accumulate a significantly higher number of links than others.
+Interpretation: Student's interpretation should focus on understanding the properties of scale-free networks and their implications in real-world.
+Research Perspective:
+One major research perspective in implementing the Barabasi-Albert (BA) scale-free network growth model is to understand the principle of preferential attachment and its profound implications on network evolution. This principle, which suggests that nodes with higher connectivity are more likely to receive new links, is central to explaining why certain nodes become hubs, significantly influencing the network's topology, robustness against failures, and overall dynamics. This insight is crucial for modeling real-world networks, ranging from social and technological to biological systems, and understanding their structural vulnerabilities and strengths.
+Lab assignment: 
+1.	Create a scale-free network using the Barabasi-Albert model.
+2.	Analyze the network's degree distribution, clustering coefficient, and path lengths.
+
+Reference: 
+https://www.geeksforgeeks.org/barabasi-albert-graph-scale-free-models/
+https://barabasi.com/f/622.pdf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Subject: Social Network Analysis Laboratory (DJ19DSL8014)
+AY: 2023-24
+Experiment 5
+Aim: Implementation of Watts-Strogatz model random network growth model. 
+
+Theory:
+1.	Introduction
+he Watts-Strogatz model is a pivotal concept in network science for simulating the small-world networks. It captures the essence of small-world properties found in many real-world networks, such as social networks, neural networks, and power grids. The model starts with a regular lattice (or ring) of n nodes each connected to k nearest neighbors and then randomly rewires each edge with a probability p, introducing randomness into the network. This process retains local clustering due to the initial regular lattice while introducing shortcuts that significantly reduce the average path length between nodes. 
+
+ 
+
+
+
+     
+      Implementation Steps for the Watts-Strogatz Model
+1.	Initialize a Regular Lattice: Begin with a ring of n nodes, where each node is connected to its k nearest neighbors (k/2 on each side, assuming k is even).
+2.	Random Rewiring of Edges: For each edge in the network, rewire it with a probability p. Rewiring is done by replacing the edge with a new one whose endpoint is a node chosen uniformly at random over the entire ring, avoiding self-loops and duplicate edges.
+3.	Iterative Process: The rewiring process is applied to each edge in the original lattice, which may result in a network that contains both highly clustered local neighborhoods and shortcuts that drastically reduce the path length between distant nodes.
+4.	Analysis: After the network is constructed, analyze its properties, particularly focusing on the clustering coefficient, path length, and degree distribution.
+Lab assignment:
+1.	Create a Watts-Strogatz Network: Implement the WS model with parameters n (number of nodes), k (each node is initially connected to k nearest neighbors), and p (probability of rewiring each edge).
+2.	Calculate Network Properties:
+3.	Path Length: The average path length decreases dramatically with a small increase in p, demonstrating the small-world phenomenon.
+4.	Degree Distribution: Initially, the degree distribution is concentrated around k, but as p increases, the distribution may spread due to the randomness introduced by rewiring.
+5.	Prepare a comparative table on all random network models with few parameters.
+https://www.mathworks.com/help/matlab/math/build-watts-strogatz-small-world-graph-model.html
+Subject: Social Network Analysis Laboratory (DJ19DSL8014)
+AY: 2023-24
+Experiment 6
+Aim: Implementation of random surfer page rank algorithm.
+Theory:
+1. Introduction
+•	Introduction to PageRank
+The PageRank algorithm was developed by Larry Page and Sergey Brin at Stanford University in 1996 as part of a research project about a new kind of search engine. The key idea behind PageRank is the notion that a page is important if it is linked to by other important pages.
+•	The Random Surfer Model
+The algorithm is based on the random surfer model, where it is assumed that a user randomly clicks on links without a specific intent or preference. The importance of a page is inferred from the number of times a "random surfer" lands on the page as they follow links from one page to another.
+The PageRank Formula
+The PageRank of a page PR(A) is determined by the PageRank of pages Ti that link to it (the number of pages linking to a page is a measure of its quality or importance). The formula also incorporates a damping factor d, which reduces the PageRank by a certain percentage. This factor represents the likelihood of a user continuing to click on links; it's set between 0 and 1, commonly around 0.85, reflecting the probability that a user will continue to surf.
+
+ 
+•	Components of the Formula
+PR(A): PageRank of page A.
+PR(Ti): PageRank of a page Ti that links to page A.
+C(Ti): Count of outbound links on page Ti.
+d: Damping factor, typically set to 0.85.
+
+•	Damping Factor
+The damping factor accounts for the probability that a surfer might get bored and start on a new random page rather than following a link. It adds a component to the calculation that includes the chance of arriving at a page through random choice out of all pages in the web.
+•	Calculation Process
+The PageRank values are calculated through an iterative process. Initially, all pages are assigned an equal rank. As iterations proceed, the PageRank values converge to a steady state, reflecting the equilibrium of the random surfer model.
+•	Significance of PageRank
+PageRank is a way of measuring the relative importance of website pages. According to Google, PageRank considers the number and quality of links to a page to estimate how important the website is. The underlying assumption is that more important websites are likely to receive more links from other websites.
+
+Algorithm: Calculation of PageRank for a Given Network
+Input:
+•	A set of web pages {A,B,C}
+•	Initial PageRank (PR) values for each page (usually set to 1)
+•	The damping d (commonly set to 0.85)
+Output:
+•	The final PageRank value for each web page after convergence
+Steps:
+1.	Initialize PageRank Values: Set the PageRank for each page A, B, and C to 1.
+2.	Determine the Damping Factor: Set the damping factor d to 0.85 (or another value if specified).
+3.	Identify Outbound Links: Count the number of outbound links for each page. In this network:
+•	Page A has 2 outbound links (to B and C).
+•	Page B has no outbound links.
+•	Page C has 1 outbound link (to A).
+4.	Iterate the PageRank Calculation:
+•	For each page, calculate the new PageRank based on the inbound links and their respective PageRank values divided by the number of outbound links. Since B has no outbound links, distribute its PageRank evenly to all pages, including itself.
+•	Apply the damping factor and the random jump factor to the calculation.
+5.	Repeat the Iteration: Perform the above step for a number of iterations until the PageRank values converge (i.e., changes between iterations are minimal or less than a small threshold).
+6.	Handle Dangling Nodes: If a page has no outbound links, assume it links out to all pages in the network, including itself, for the purposes of the calculation.
+7.	PageRank Calculation for Each Page:
+•	For Page A: PR(A)=(1−d)+d∗(PR(C)/C(TC))
+•	For Page B: PR(B)=(1−d)+d∗(PR(A)/C(TA))
+•	For Page C: PR(C)=(1−d)+d∗(PR(A)/C(TA)+PR(B)/C(TB))
+
+Where TA, TB, and TC are the sets of pages linking to A, B, and C, respectively, and C(Ti) is the number of outbound links for pages in Ti.
+8.	Convergence Check: After each iteration, check if the sum of the absolute differences of the PageRank values between the current and previous iterations for all pages is less than a specified threshold (e.g., 0.001).
+9.	Finalize PageRank Values: Once the PageRank values have converged, finalize the values as the PageRank for each page.
+10.	Output the PageRank: Return or display the final PageRank values for all pages.
+
+
+Lab assignment:
+Given Network:
+You are provided with a network where:
+•	All pages initially have a PageRank (PR) of 1.
+•	Page A links to page B and C.
+•	Page B does not link to any page.
+•	Page C links back to page A.
+•	Assume a damping factor (d) of 0.85.
+Calculate page rank using random surfer model. 
+
+https://www.kaggle.com/code/rajat95gupta/implementing-pagerank-on-famous-social-networks
+
+
+
+
+
+
+Subject: Social Network Analysis Laboratory (DJ19DSL8014)
+AY: 2024-25
+Experiment 7
+Aim: Implementation clique percolation algorithm for community detection.
+Theory:
+1. Introduction
+In the realm of network analysis, the discovery of community structures within large networks is a significant challenge with profound implications across various fields such as sociology, biology, and computer science. The Clique Percolation Method (CPM) stands out as a sophisticated approach for detecting overlapping communities within complex networks. This method, premised on the idea that social groups overlap and share common ties, treats communities as groups of nodes that form cliques (fully connected subgraphs). By iteratively identifying and merging these cliques based on shared nodes, CPM reveals the intricate tapestry of communities that would otherwise be obscured in the complexity of network data. The following sections will delve into the mechanics of CPM, providing the theoretical foundations and algorithmic steps essential for implementing this powerful method in practice.
+Input:
+•	A network graph G(V, E), where V is the set of vertices and E is the set of edges.
+•	An integer k representing the size of the clique for percolation.
+Output:
+•	A set of communities C, where each community is a subset of V.
+1.	Find All k-Cliques: Identify all possible k-cliques in the graph. A k-clique is a complete subgraph of k vertices.
+2.	Create Clique Graph: Construct a clique graph G'(V', E') where each k-clique is represented as a vertex in V'. Two vertices in G' are connected if their corresponding k-cliques in G share k-1 vertices.
+3.	Identify k-Clique Communities: Find connected components in G'. Each connected component represents a k-clique community. This step is performed using a breadth-first search (BFS) or depth-first search (DFS) algorithm on G'.
+4.	Merge k-Clique Communities: For each pair of connected components (communities) in G', merge them into a single community if they share k-1 vertices.
+5.	Resulting Communities: The resulting connected components after the merger represent the communities within the original graph G.
+6.	Stopping Criterion: Repeat step 4 until no further merging is possible, i.e., when each pair of communities shares less than k-1 vertices.
+Lab Assignment
+  
+For above network assume k=3 and detect communities using CPM.
+https://medium.com/@sabadejuyee21/community-detection-through-clique-percolation-method-on-the-game-of-thrones-universe-b12efb188d99
+Subject: Social Network Analysis Laboratory (DJ19DSL8014)
+AY: 2024-25
+Experiment 8
+Aim: Anomaly detection of static graph using oddball technique.
+Theory:
+1.	Introduction
+ 
+ A feature-based anomaly detection technique called ODDBALL is proposed by [Akoglu et al.,], which extracts egonet-based features and finds patterns that most of the egonets of the graph follow with respect to those features. As such, this method can spot anomalous egonets (and hence anomalous nodes), as those that do not follow the observed patterns. An egonet is defined as the 1-step neighborhood around a node; including the node, its direct neighbors, and all the connections among these nodes (an example is shown on the right figure). More formally an egonet is the induced 1-step sub-graph for each node. Given the egonets, the main question and challenge is which features to look at, as there is a long list of possible graph-based measures that can be extracted as egonet features. The paper proposes a carefully chosen subset of features (e.g. number of triangles, total weight of edges, etc.) that are (1) observed to yield patterns across a wide range of real-world graphs, and  fast to compute and easy to interpret. The egonet features are then studied in pairs and several patterns in the form of power-laws are observed among strongly related features (e.g. number of neighbors and number of triangles). For a given egonet, its deviation from a particular pattern is computed based on its “distance” to the relevant power-law distribution. Each egonet then receives a separate deviation, or outlierness, score with respect to each pattern. 
+Following are the steps: 
+Step 1: Define Egonets for Each Node
+•	For each node in the network, define its egonet, which includes the node, its direct neighbors, and all the edges among them.
+Step 2: Feature Extraction for Each Egonet
+•	Ni: Calculate the number of neighbors for each node.
+•	Ei: Count the number of edges within the egonet.
+•	Wi: Compute the total weight of the egonet, which could represent the strength or frequency of interactions between nodes within the egonet.
+•	λw,i: Determine the principal eigenvalue of the weighted adjacency matrix of the egonet.
+Step 3: Identify Patterns and Compute Deviations
+•	E vs N (CliqueStar): Detect patterns indicative of cliques or star structures by analyzing the relationship between Ei and Ni.
+•	W vs E (HeavyVicinity): Identify egonets with unusually strong or frequent interactions by comparing Wi against Ei.
+•	λw vs W (DominantPair): Look for egonets where one connection is significantly stronger than others by analyzing the relationship between λw,i and Wi.
+Step 4: Fit Power-Laws and Measure Deviation
+•	Using the identified patterns, fit power-law distributions to these feature pairs across the network.
+•	For each egonet, measure how much it deviates from the expected power-law distribution for each feature pair.
+Step 5: Assign Outlierness Scores
+•	Assign a score that quantifies the deviation for each egonet, with respect to each pattern.
+•	Egonets with high deviation scores are those that significantly differ from the typical pattern and may be considered anomalous.
+Step 6: Anomaly Detection
+•	Establish a threshold or criteria to decide which egonets are anomalous based on their outlierness scores.
+•	Flag egonets (and consequently nodes) that exceed this threshold as anomalies.
+Step 7: Post-Analysis
+•	Investigate the flagged anomalies to understand their context and implications.
+•	Depending on the type of network and the domain (social, biological, informational, etc.), determine the appropriate response to these anomalies.
+Step 8: Refinement and Iteration
+•	Refine the process by potentially updating feature selection, pattern identification, and threshold definition based on the insights gained from the anomalies detected.
+•	Iterate the process as the network evolves or as new data becomes available to continually monitor for anomalies.
+
+Lab Assignment
+Apply the Oddball technique on any network, constructed at random or any other network, to detect graph anomalies.
+
+
+
+
+
+
+
+
+
+
+
+Subject: Social Network Analysis Laboratory (DJ19DSL8014)
+AY: 2024-25
+Experiment 9
+
+Aim: To study information diffusion models through real-time case analysis, focusing on the dynamics of how information spreads in a social network.
+Theory:
+Information diffusion models explain the process through which information propagates in networks such as social media, communication systems, and biological environments. These models help understand the mechanisms of influence, adoption, and spread, aiding in fields like marketing, epidemiology, and cybersecurity.
+Core Models:
+Independent Cascade Model: Each node influenced has a chance to spread the information to its neighbors based on a probability factor.
+Linear Threshold Model: A node adopts the information if the cumulative influence from its neighbors exceeds a certain threshold.
+SIR Model (Susceptible-Infectious-Recovered): Commonly used in epidemiology, this model tracks nodes from being susceptible to becoming infectious and eventually recovering.
+
+Metrics for Analysis:
+Spread Size: The number of nodes that received the information.
+Time of Spread: How quickly information reaches the majority.
+Influence Maximization: Identifying the most influential nodes to maximize spread.
+Case Study Example:
+Title: Tracking Viral Tweets on Social Media Platforms
+Description:
+A social media platform applied information diffusion models to study how tweets go viral. The platform focused on identifying key influencers and understanding the reach and speed of information spread.
+Process:
+Data Collection: Gathered tweet interaction data including likes, retweets, and replies.
+Model Application: Applied the Independent Cascade and Linear Threshold models.
+Analysis: Measured metrics such as spread size, influence time, and key influencers.
+Findings:
+Key Influencers Identified: Verified accounts with large followings played a critical role.
+Time-Sensitive Spreading: Tweets with time-sensitive content spread faster.
+Cluster Effects: Communities with strong internal connections amplified the spread.
+
+
+Conclusion:
+Information diffusion models provided valuable insights into social media dynamics, allowing for improved content targeting, marketing strategies, and misinformation control.
+
+
